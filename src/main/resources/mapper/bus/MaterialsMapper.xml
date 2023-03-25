@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.maple.bus.mapper.MaterialsMapper">
+
+    <!-- 根据物料id删除物料管理信息 -->
+    <delete id="deleteSaleByMaterialsId">
+        delete from bus_materials where materialsid = #{materialsid}
+    </delete>
+
+    <!-- 根据物料id删除物料管理退货信息 -->
+    <delete id="deleteSaleBackByMaterialsId">
+        delete from bus_materialsback where materialsid = #{materialsid}
+    </delete>
+
+    <!-- 根据物料id删除物料进货信息 -->
+    <delete id="deleteInportByMaterialsId">
+        delete from bus_inport where materialsid = #{materialsid}
+    </delete>
+
+    <!-- 根据物料id删除物料退货信息 -->
+    <delete id="deleteOutportByMaterialsId">
+        delete from bus_outport where materialsid = #{materialsid}
+    </delete>
+
+    <!-- 根据运营商id删除物料管理 -->
+    <delete id="deleteSaleByOperatorId">
+        delete from bus_materials where operatorid = #{operatorid}
+    </delete>
+
+    <!-- 根据运营商id删除物料管理退货信息 -->
+    <delete id="deleteSaleBackByOperatorId">
+        delete from bus_materialsback where operatorid = #{operatorid}
+    </delete>
+
+    <!--查询所有库存预警物料-->
+    <select id="loadAllWarning" resultType="com.maple.bus.entity.Materials">
+        select * from bus_materials where dangernum > number
+    </select>
+
+
+</mapper>
